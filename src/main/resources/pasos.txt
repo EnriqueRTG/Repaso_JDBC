@@ -1,0 +1,36 @@
+Crear la BD para la persistencia y sus tablas. (Datos de configuracion en la clase DAO en la capa de persistencia (paquete persistencia en el proyecto))
+
+Importar la dependencia del Drive de la base de datos en el archivo POM. En este caso de MySQL.
+O importar el jar en el proyecto.
+
+Organizar el proyecto en paquetes.
+
+Por ejemplo:
+Paquete 1: Capa Dominio: Las clases molde o de logica
+Paquete 2: Capa Persistencia
+
+Utilizar el patron de disenio DAO (Data Access Object)
+
+En persistencia generar la clase padre DAO con los metodos de:
+Conexion y desconexion de la BD
+Insercion, edicion y eliminacion
+Consultas
+
+En la misma capa de Persistencia generar las clases especializadas de DAO
+que se correspondan con las clases moldes de los objetos de la capa de Dominio que se desea persistir
+
+En cada clase (final) que hereda de la clase padre DAO se deben implementar otros metodos que
+representan a las operaciones ABML y se valen de los metodos heredados. En estos nuevos metodos
+se aplicaran consultas con lenguaje SQL nativo.
+
+En el caso particular de consultas del tipo traer un registro o varios, bajo algun
+criterio especifico, esta operacion contara con un grado mas de complejidad.
+Se debera pasar los datos de los campos de los registros traidos a los atributos a uno (o varios) objetos
+para devolverlo en la aplicacion.
+
+Generar por cada clase del Dominio se debe generar su clase Service
+encargada de las operaciones de la logica de negocio utilizando las clases DAOs especializadas
+
+
+
+
